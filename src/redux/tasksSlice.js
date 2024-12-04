@@ -18,6 +18,14 @@ const tasksSlice = createSlice({
       const task = state.tasks.find((task) => task.id === action.payload);
       if (task) task.completed = true;
     },
+    editTask: (state, action) => {
+      const taskIndex = state.tasks.findIndex(
+        (task) => task.id === action.payload.id
+      );
+      if (taskIndex !== -1) {
+        state.tasks[taskIndex] = action.payload;
+      }
+    },
     setFilter: (state, action) => {
       state.filter = action.payload;
     },
@@ -31,6 +39,7 @@ export const {
   addTask,
   deleteTask,
   markAsCompleted,
+  editTask,
   setFilter,
   setSearchTerm,
 } = tasksSlice.actions;

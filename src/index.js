@@ -1,3 +1,4 @@
+// src/index.js
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
@@ -12,7 +13,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
+      <Router basename="/task_management">
         <Routes>
           <Route path="/" element={<Navigate to="/tasks" />} />
           <Route path="/tasks" element={<TaskDashboard />} />
@@ -22,4 +23,3 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
-// reportWebVitals();
